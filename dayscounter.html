@@ -8,11 +8,17 @@
     body {
       font-family: 'Caudex', sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100%;
       margin: 0;
       background-color: transparent;
+    }
+    .heading {
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 10px;
     }
     .count {
       font-size: 2rem;
@@ -22,6 +28,7 @@
   </style>
 </head>
 <body>
+  <div class="heading">Days Together</div>
   <div class="count" id="daysCount"></div>
 
   <script>
