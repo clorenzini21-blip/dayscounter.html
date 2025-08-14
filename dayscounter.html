@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Days Since 3/3/2024</title>
+  <style>
+    body {
+      font-family: 'Caudex', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin: 0;
+      background-color: transparent;
+    }
+    .count {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="count" id="daysCount"></div>
+
+  <script>
+    function calculateDaysSince(date) {
+      const now = new Date();
+      const targetDate = new Date(date);
+      const timeDiff = now - targetDate;
+      return Math.floor(timeDiff / (1000 * 3600 * 24));
+    }
+    document.getElementById('daysCount').innerText = calculateDaysSince('2024-03-03');
+  </script>
+</body>
+</html>
