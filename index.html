@@ -5,50 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Days Counter</title>
 
-  <!-- Import Bacasime Antique font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
+    html, body { height: 100%; margin: 0; background: transparent; }
     body {
-      font-family: 'Bacasime Antique', serif; /* Match WedSites font */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      margin: 0;
-      background-color: transparent;
-      text-align: center;
-      color: #ede7c2; /* Match WedSites text color */
+      font-family: 'Bacasime Antique', serif; /* matches WedSites */
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; color: #ede7c2;
     }
     .heading {
-      font-size: 1rem;
-      font-weight: normal;
-      letter-spacing: 0.05em;
-      margin-bottom: 12px; /* spacing before number */
-      text-transform: uppercase;
+      font-size: 1rem; letter-spacing: 0.05em; margin-bottom: 12px; text-transform: uppercase;
+      font-weight: 400;
     }
     .count {
-      font-size: 2.8rem; /* nice big number */
-      font-weight: bold;
-      line-height: 1.2;
+      font-size: 2.8rem; line-height: 1.2;
+    }
+    .digits {
+      font-family: 'Roboto Mono', monospace;  /* clean, even digits */
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-variant-numeric: tabular-nums;     /* helps alignment where supported */
+    }
+
+    /* Optional: scale down slightly on narrow iframes */
+    @media (max-width: 360px) {
+      .count { font-size: 2.3rem; }
     }
   </style>
 </head>
 <body>
   <div class="heading">Days Together</div>
-  <div class="count" id="daysCount"></div>
+  <div class="count"><span class="digits" id="daysCount" aria-label="Days together"></span></div>
 
   <script>
     function calculateDaysSince(date) {
       const now = new Date();
       const targetDate = new Date(date);
       const timeDiff = now - targetDate;
-      return Math.floor(timeDiff / (1000 * 3600 * 24));
+      return Math.floor(timeDiff / (1000 * 60 * 60 * 24));
     }
-    document.getElementById('daysCount').innerText = calculateDaysSince('2024-03-03');
+    document.getElementById('daysCount').textContent = calculateDaysSince('2024-03-03');
   </script>
 </body>
 </html>
